@@ -21,7 +21,7 @@ The version is what I tested.
 
 
 ## Installation
-Follow [this installation guide](./wiki/Home.md)...
+Follow [this installation guide](../../wiki/Home)...
 
 
 ## Known Issues
