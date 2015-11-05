@@ -28,7 +28,7 @@ Setting the folder like this:
 
 
 ### PerC SDK
-- You can download R7-12492 version from [Creative's supporting page](http://support.creative.com/downloads/welcome.aspx?nLanguageLocale=1033&nDriverType=0#type_0)
+- You can download R7-12492 version from [Creative's support page](http://support.creative.com/Products/ProductDetails.aspx?catID=218&CatName=Web+Cameras&subCatID=1056&subCatName=Senz3D+Series&prodID=21514&prodName=Creative+Senz3D&bTopTwenty=1&VARSET=prodfaq:PRODFAQ_21514,VARSET=CategoryID:218)
 - Install and find the folder in your PC. By its default, it should be "C:/Program Files (x86)/Intel/PCSDK"
 
 Now what you need is to copy the **libpxc** and **libpxcutils** into dependency folder as **Multi-threaded (Debug) DLL** build.
@@ -51,7 +51,7 @@ Now what you need is to copy the **libpxc** and **libpxcutils** into dependency 
 - Copy the "hskl.dll" from "{hskl}/bin/Win32" to "bin\_x86" and "{hskl}/bin/x64" to "bin\_x64", respectively.
 
 ### FreeGLUT
-- You can download the prebuilt version from: http://www.transmissionzero.co.uk/software/freeglut-devel
+- You can download the prebuilt version from [Transmission Zero's page](http://www.transmissionzero.co.uk/software/freeglut-devel).
 - Extract it into "dependency" folder. You don't need to change anything.
 - Copy the "{FreeGLUT}/freeglut.dll" to "bin\_x86" and "{FreeGLUT}/x64/freeglut.dll" to "bin\_x64", respectively.
 
