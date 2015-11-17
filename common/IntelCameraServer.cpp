@@ -22,7 +22,6 @@ IntelCameraServer::IntelCameraServer(int device_num)
 	confi_image = cvCreateImageHeader(cvSize(DEPTH_WIDTH, DEPTH_HEIGHT), IPL_DEPTH_16U, 1);
 
 	// create buffer for projection & fill constant 2d coordinate at first
-	posc = new PXCPointF32[DEPTH_WIDTH*DEPTH_HEIGHT];
 	pos2d = new PXCPoint3DF32[DEPTH_WIDTH*DEPTH_HEIGHT];
 	for (int j = 0; j<DEPTH_HEIGHT; j++)
 	for (int i = 0; i<DEPTH_WIDTH; i++){
@@ -35,6 +34,7 @@ IntelCameraServer::IntelCameraServer(int device_num)
 	depth_image->imageData = (char*)pMemoryMap[1];
 	confi_image->imageData = (char*)pMemoryMap[2];
 	pos3d = (PXCPoint3DF32*)pMemoryMap[3];
+	posc = (PXCPointF32*)pMemoryMap[4];
 
 	printf("allocated!\n");
 }
@@ -50,7 +50,6 @@ IntelCameraServer::~IntelCameraServer()
 	cvReleaseImageHeader(&confi_image);
 
 	// delete buffer
-	delete posc;
 	delete pos2d;
 }
 
@@ -92,7 +91,8 @@ int IntelCameraServer::InitWriteMMF(int device_num)
 	memorySize[0] = sizeof(uchar )*COLOR_WIDTH*COLOR_HEIGHT*3;
 	memorySize[1] = sizeof(ushort)*DEPTH_WIDTH*DEPTH_HEIGHT*1;
 	memorySize[2] = sizeof(ushort)*DEPTH_WIDTH*DEPTH_HEIGHT*1;
-	memorySize[3] = sizeof(PXCPoint3DF32)*DEPTH_WIDTH*DEPTH_HEIGHT*1;
+	memorySize[3] = sizeof(PXCPoint3DF32)*DEPTH_WIDTH*DEPTH_HEIGHT * 1;
+	memorySize[4] = sizeof(PXCPointF32)*DEPTH_WIDTH*DEPTH_HEIGHT * 1;
 
 	// create memory-mapped file & file view for shared memory
 	for(int id=0;id<NUM_OF_MMF;id++){

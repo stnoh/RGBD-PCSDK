@@ -17,6 +17,7 @@ __declspec(dllexport) void initIntelCameraClient(int device_num);
 __declspec(dllexport) void endIntelCameraClient();
 
 __declspec(dllexport) void copyIntelCameraPointCloud(float* arrayPtr, int w, int h, int i_offset, int j_offset);
+__declspec(dllexport) void copyIntelCameraPointUVmap(float* arrayPtr, int w, int h, int i_offset, int j_offset);
 
 __declspec(dllexport) void getIntelCameraColorImage(int *w, int *h);
 __declspec(dllexport) void copyIntelCameraColorImage(char* arrayPtr);

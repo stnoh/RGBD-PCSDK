@@ -27,6 +27,7 @@ IntelCameraClient::IntelCameraClient(int device_num)
 	depth_image->imageData = (char*)pMemoryMap[1];
 	confi_image->imageData = (char*)pMemoryMap[2];
 	pos3d = (PXCPoint3DF32*)pMemoryMap[3];
+	posc = (PXCPointF32*)pMemoryMap[4];
 
 	printf("working now!\n");
 }

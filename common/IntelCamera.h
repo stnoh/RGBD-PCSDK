@@ -20,8 +20,8 @@ All rights reserved.
 #include <pxcmetadata.h>
 
 // data on shared memory
-static const int NUM_OF_MMF = 4;
-static const char* DATA_NAME[NUM_OF_MMF] = {"color", "depth", "infra", "cloud"};
+static const int NUM_OF_MMF = 5;
+static const char* DATA_NAME[NUM_OF_MMF] = {"color", "depth", "infra", "cloud", "uvmap"};
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -34,6 +34,7 @@ public:
 	virtual ~IntelCameraClient();
 
 	PXCPoint3DF32* pos3d;
+	PXCPointF32*   posc;
 
 private:
 	int InitReadMMF(int device_num);

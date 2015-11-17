@@ -32,6 +32,21 @@ void copyIntelCameraPointCloud(float* arrayPtr, int WIDTH, int HEIGHT, int i_off
 	}
 }
 
+void copyIntelCameraPointUVmap(float* arrayPtr, int WIDTH, int HEIGHT, int i_offset, int j_offset)
+{
+	// direct copy
+	int count = 0;
+	for (int j = 0; j<HEIGHT; j++)
+	for (int i = 0; i<WIDTH; i++)
+	{
+		PXCPointF32 pt = client->posc[(i + i_offset) + (j + j_offset)*DEPTH_WIDTH];
+		arrayPtr[2*count+0] = pt.x;
+		arrayPtr[2*count+1] = pt.y;
+
+		count++;
+	}
+}
+
 void getIntelCameraColorImage(int *w, int *h)
 {
 	*w = client->getColorImage()->width;
